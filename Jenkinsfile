@@ -1,4 +1,4 @@
-def containerName="docker-pipeline"
+def containerName="docker-webapp"
 def tag="latest"
 def dockerHubUser="jatinsharma123"
 def httpPort="8080"
