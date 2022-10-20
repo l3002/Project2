@@ -11,7 +11,7 @@ pipeline{
 	stages{
 		stage('Git Checkout'){
 			steps{
-				git credentialsId: '8c0ede61-99b0-41ec-b40f-ded46c222c85', url: 'https://github.com/l3002/Project.git'
+				git credentialsId: '8c0ede61-99b0-41ec-b40f-ded46c222c85', url: 'https://github.com/l3002/Project2.git'
 			}
 		}
         	stage('Build'){
