@@ -1,7 +1,7 @@
 def containerName="docker-pipeline"
 def tag="latest"
 def dockerHubUser="jatinsharma123"
-def httpPort="80"
+def httpPort="8080"
 
 pipeline{
 	agent any
@@ -16,7 +16,6 @@ pipeline{
 		}
         	stage('Build'){
 			steps{
-				sh 'export PATH="$PATH:/root/apache-maven-3.8.6/bin"'
             			sh "mvn clean install"
 			}
         	}
@@ -49,8 +48,8 @@ pipeline{
 			steps{
             			sh "docker rm $containerName -f"
             			sh "docker pull $dockerHubUser/$containerName"
-           	 		sh "docker run -d --rm -p $httpPort:$httpPort --name $containerName $dockerHubUser/$containerName:$tag"
-            			echo "Application started on port: ${httpPort} (http)"
+           	 		sh "docker run -d --rm -p 8888:$httpPort --name $containerName $dockerHubUser/$containerName:$tag"
+            			echo "Application started on port: 8888 (http)"
 			}
     		}
     	}
